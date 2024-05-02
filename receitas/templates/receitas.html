@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Receita {% endblock title %}
+
+{% block body %}
+
+    <main class="main-content-container">
+        <div class="main-content main-content-detail container">
+             {% include 'static/fragments/receita.html' %}
+        </div>
+    </main>
+        {% include 'static/fragments/footer.html' %}
+{% endblock %}
