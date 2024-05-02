@@ -1,0 +1,115 @@
+.main-content {
+    padding-top: 0;
+}
+
+.main-content-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: var(--spacing-gutter-large);
+
+}
+
+.receitas{
+    background: var(--color-white);
+    box-shadow: -5px 5px 10px rgb(0, 0, 0, .3);
+    transform: scale(1);
+    transition: all 300ms ease-in-out;
+    border-radius: .50rem;
+    overflow: hidden;
+}
+
+.receitas img{
+    max-width: 100%;
+    
+}
+
+.receitas-list-items{
+    max-width: 40rem;
+    height: fit-content;
+
+}
+
+.receitas-list-items:hover{
+    transform: scale(1.02);
+    box-shadow: -10px 10px 18px rgb(0, 0, 0, .6);
+
+}
+
+.receitas-title-container{
+    padding: var(--spacing-gutter-medium);
+    padding-bottom: 2rem;
+}
+
+.receitas-author{
+    padding: 0 var(--spacing-gutter-medium);
+}
+
+.receitas-contet{
+    padding: var(--spacing-gutter-medium);
+    padding-top: 2rem;
+}
+
+.receitas-author-item{
+    color: var(--color-gray-4);
+    margin-right: 1rem;
+}
+
+.receitas-author a {
+    color: var(--color-primary);
+    transition: all 300ms ease-in-out;
+    text-decoration: none;
+}
+
+.receitas-author a:hover {
+    color: var(--color-primary-dark);
+}
+
+.receitas-meta-container{
+    display: flex;
+    flex-flow: row wrap;
+    padding: var(--spacing-gutter-medium);
+    background: var(--color-gray-1);
+}
+
+.receitas-meta{
+    display: flex;
+    flex-flow: column wrap;
+    flex-shrink: 1;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.receitas-meta-title {
+    font-size: 1.6rem;
+}
+
+.receitas-footer a {
+    background: var(--color-primary-dark);
+    display: block;
+    color: var(--color-white);
+    text-decoration: none;
+    text-align: center;
+    padding: 1.5rem;
+    transition: all 300ms ease-in-out;
+}
+
+.receitas-footer a:hover {
+    filter: brightness(2.2);
+}
+
+
+.main-content-detail  .receitas-list-items{
+    max-width: 84rem;
+    margin: 0 auto;
+
+}
+
+.main-content-detail  .receitas-list-items:hover{
+    transform: scale(1);
+    box-shadow: -5px 5px 15px rgb(0, 0, 0, .6);
+
+}
+
+.preparation-steps{
+    padding: var(--spacing-gutter-medium);
+}
