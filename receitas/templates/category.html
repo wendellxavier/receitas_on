@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Categoria {% endblock title %}
+
+
+{% block body %}
+    {% for receita in receitas %}
+        {% include 'static/fragments/receita.html' %}
+    {% endfor %}
+
+
+    {% include 'static/fragments/footer.html' %}
+
+{% endblock body %}

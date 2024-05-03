@@ -5,27 +5,45 @@
                 <img src="{{ receitas.cover.urls }}"alt="">
             </div>
             <div class="receitas-title-container">
-                <h2 class="receita-title">{{receita.title}}</h2>
+                <h2 class="receita-title">
+                    <a href="{% url 'receitas' receitas.id %}">
+                        {{receita.title}}
+                    </a>
+                </h2>
             </div>
 
-            <div class="receitas-author">
-                <span class="receitas-author-item">
-                    <i class="fas fa-user">
-                        wendell
-                    </i>
-                </span>
+            
+                <div class="receitas-author">
+                    <span class="receitas-author-item">
+                        <i class="fas fa-user"></i>
+                        {% if receitas.author is not None %}
+                            {% if receitas.author.first_name %}
+                                {{ receitas.author.first_name }} {{ receitas.author.last_name}}
+                            {% else %}
+                                {{ receitas.author.username }}
+                        {% endif %}
+                            {% else %}
+                                Desconhecido
+                        {% endif %}
+                    </span>
+                   
+
                 <span class="receitas-author-item">
                     <i class="fas fa-calnder-alt">
                         20/03/2023 as 11:11
                     </i>
                 </span>
-                <span class="receitas-author-item">
-                    <a href="/">
-                        <i class="fas fa-layer-group">
-                            <span>{{receita.category.name}}</span>
-                        </i>
-                    </a>
-                </span>
+
+                {% if receitas.category is not None %}
+                    <span class="receitas-author-item">
+                        <a href="{% url 'receitas:category' receitas.category_id %}">
+                            <i class="fas fa-layer-group">
+                                <span>{{receita.category.name}}</span>
+                            </i>
+                        </a>
+                    </span>
+                {% endif %}
+
             </div>
             <div class="receitas-contet">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, eveniet!</p>
@@ -45,6 +63,7 @@
                     </div>
                 </div>
             </div>
+
             {% if is_detail_page is not True %}
                 <footer class="receitas-footer">
                     <a class="receitas-read-more button button-dark button-full-width" href="{% url 'receitas'%}">

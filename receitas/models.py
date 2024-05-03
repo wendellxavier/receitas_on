@@ -29,7 +29,7 @@ class Receita(models.Model):
     update_at = models.DateTimeField(auto_now=True)
     is_published = models.BooleanField(default=False)
     cover = models.ImageField(upload_to='receitas/covers/%Y/%m/%d/')
-    catergory = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+    catergory = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True, default=None)
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     
     def __str__(self):
