@@ -1,3 +1,6 @@
 from django.test import TestCase
 
-# Create your tests here.
+class ReceitaURLstest(TestCase):
+        
+    def test_receitas_home_verificar_se_url_esta_correta(self):
+        ...
