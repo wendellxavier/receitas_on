@@ -46,14 +46,14 @@
 
             </div>
             <div class="receitas-contet">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, eveniet!</p>
+                <p>{{receita.preparation_steps}}</p>
             </div>
 
             <div class="receitas-meta-container">
                 <div class="receitas-meta receitaspreparation">
                     <h3 class="receitas-meta-title"><i class="fas fa-stopwatch"></i> Preparo</h3>
                     <div class="receitas-meta-text">
-                        0 Minutos
+                        {{receita.preparation_time}} minutos
                     </div>
                 </div>
                 <div class="receitas-meta receitas-servings">
@@ -75,8 +75,12 @@
 
             {% if is_detail_page is True %}
                 <div class="preparation-steps">
+                 {% if receita.preparation_steps_is_html is True %}
+                    {{ receita.preparations_steps | safe }}
+                        {% else %}
                     {{ receita.preparations_steps | linebreaksbr }}
-                </div>
+                {% endif %}
+            </div>
             {% endif %}
 
         </div>
