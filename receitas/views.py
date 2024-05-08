@@ -16,3 +16,6 @@ def category(request, category_id):
 def receitas_detalhe(request, id_receitas):
     receita = get_object_or_404(Receita, id=id_receitas, is_published=True)
     return render(request, 'receitas.html', context={'receita': receita,'is_detail_page': True})
+
+def search(request):
+    return render(request, 'receitas/search.html')
