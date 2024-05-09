@@ -18,4 +18,7 @@ def receitas_detalhe(request, id_receitas):
     return render(request, 'receitas.html', context={'receita': receita,'is_detail_page': True})
 
 def search(request):
-    return render(request, 'receitas/search.html')
+    search_term = request.GET.get('search')
+    if not search_term:
+        raise Http404
+    return render(request, 'search.html', {'receitas.title': f'Pesquisa por "{search_term}" |', 'search_term': search_term})
