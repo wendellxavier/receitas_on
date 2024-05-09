@@ -5,10 +5,7 @@
 
 
 {% block body %}
-<div class="center">
-    <h2>Você pesquisou por {{ search_term }}</h2>
 
-</div>
 <div class="main-content main-content-list container">
     {% for receita in receitas %}
         {% include 'static/fragments/receita.html' %}

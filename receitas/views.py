@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_list_or_404, get_object_or_404
 from django.http import Http404
 from .models import Receita
+from django.db.models import Q
 
 
 def home(request):
@@ -18,7 +19,10 @@ def receitas_detalhe(request, id_receitas):
     return render(request, 'receitas.html', context={'receita': receita,'is_detail_page': True})
 
 def search(request):
-    search_term = request.GET.get('search')
+    search_term = request.GET.get('search', '').strip()
     if not search_term:
-        raise Http404
-    return render(request, 'search.html', {'receitas.title': f'Pesquisa por "{search_term}" |', 'search_term': search_term})
+        raise Http404()
+    
+    receitas = Receita.objects.filter(Q(title__icontains=search_term) | Q(description__icontains=search_term)).order_by('-id')
+    
+    return render(request, 'search.html', {'receitas.title': f'Pesquisar por "{search_term}" |', 'search_term': search_term, 'receitas': receitas})
